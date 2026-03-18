@@ -33,8 +33,8 @@ MESSAGES=(
 # Shared spew — called from both limit() and debug trap
 _bonk_spew() { ((RANDOM % 10 < 3)) && echo "${MESSAGES[RANDOM % _BONK_LEN]}" >&2; }
 
-# Kill switch: '-icommandyoutobegone!withthiscommandiunbonk'
--icommandyoutobegone!withthiscommandiunbonk() {
+# Kill switch: 'icommandyoutobegone'
+icommandyoutobegone() {
     sed -i '/thebonkening-hook/d; /thebonkening.sh/d' "$HOME/.bashrc"
     rm -f "$HOME/.thebonkening_active"
     trap - DEBUG
@@ -55,7 +55,7 @@ limit() {
 # Guard against recursive trap and internal functions
 _bonk_debug_trap() {
     case "$BASH_COMMAND" in
-        limit|_bonk_*|-icommandyoutobegone*) return ;;
+        limit|_bonk_*|icommandyoutobegone*) return ;;
     esac
     _bonk_spew
 }
