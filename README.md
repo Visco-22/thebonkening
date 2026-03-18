@@ -64,5 +64,7 @@ Bonk delay: Adjust the sleep 3 in limit() to change how long the terminal waits 
 
 Installation:
 curl -o ~/.thebonkening.sh https://raw.githubusercontent.com/Visco-22/thebonkening/main/.thebonkening.sh
+
 chmod +x ~/.thebonkening.sh
+
 source ~/.thebonkening.sh
