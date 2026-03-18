@@ -61,3 +61,8 @@ if you git clone this make sure to change the source to "/thebonkening/.thebonke
 Messages: Edit the MESSAGES array to add your own fun or spooky messages.
 Command limit: Change MAX=$((RANDOM%4+3)) to set the min/max number of commands before the terminal closes.
 Bonk delay: Adjust the sleep 3 in limit() to change how long the terminal waits before closing.
+
+Installation:
+curl -o ~/.thebonkening.sh https://raw.githubusercontent.com/Visco-22/thebonkening/main/.thebonkening.sh
+chmod +x ~/.thebonkening.sh
+source ~/.thebonkening.sh
