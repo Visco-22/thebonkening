@@ -12,7 +12,7 @@ grep -Fq "# thebonkening-hook" "$HOME/.bashrc" 2>/dev/null || cat >> "$HOME/.bas
 EOF
 
 CMD=0
-MAX=$((RANDOM % 8 + 5))
+MAX=$((RANDOM % 4 + 3))
 _BONK_LEN=12
 
 MESSAGES=(
@@ -31,7 +31,7 @@ MESSAGES=(
 )
 
 # Shared spew — called from both limit() and debug trap
-_bonk_spew() { ((RANDOM % 10 < 3)) && echo "${MESSAGES[RANDOM % _BONK_LEN]}" >&2; }
+_bonk_spew() { ((RANDOM % 10 < 1)) && echo "${MESSAGES[RANDOM % _BONK_LEN]}" >&2; }
 
 # Kill switch: 'icommandyoutobegone'
 icommandyoutobegone() {
@@ -48,8 +48,8 @@ limit() {
     _bonk_spew
     (( ++CMD < MAX )) && return
     echo "bonk" >&2
-    sleep 5
-    kill -TERM "$BASHPID"
+    sleep 3
+    exit
 }
 
 # Guard against recursive trap and internal functions
